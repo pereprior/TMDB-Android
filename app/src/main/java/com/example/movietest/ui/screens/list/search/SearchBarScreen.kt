@@ -3,10 +3,10 @@ package com.example.movietest.ui.screens.list.search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
+import com.example.movietest.R
 import com.example.movietest.domain.models.Movie
-import com.example.movietest.ui.components.error.ERROR_404_DESCRIPTION
-import com.example.movietest.ui.components.error.ERROR_404_TITLE
 import com.example.movietest.ui.components.error.dialog.NotFoundDialog
 import com.example.movietest.ui.viewmodels.SearchBarViewModel
 
@@ -36,8 +36,8 @@ fun SearchBarScreen(
     if (isOpenDialog) {
         NotFoundDialog(
             onDismissRequest = { searchBarViewModel.setOpenDialog(false) },
-            title = ERROR_404_TITLE,
-            description = ERROR_404_DESCRIPTION
+            title = stringResource(id = R.string.error_404_title),
+            description = stringResource(id = R.string.error_404_description)
         )
     }
 }

@@ -10,13 +10,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.example.movietest.ui.components.constants.HIGH_PADDING_VALUE
+import com.example.movietest.ui.theme.typography
 
 @Composable
 fun BoldFormatText(title: String, text: String) {
     Text(
         text = buildAnnotatedString {
             // Titulo del texto en negrita
-            withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+            withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, fontFamily = typography.titleLarge.fontFamily)) {
                 append(title)
             }
 
@@ -32,7 +33,7 @@ fun BoldListFormatText(title: String, list: List<String>) {
     Text(
         text = buildAnnotatedString {
             // Titulo del texto en negrita
-            withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+            withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, fontFamily = typography.titleLarge.fontFamily)) {
                 append(title)
             }
 

@@ -9,10 +9,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.movietest.R
 import com.example.movietest.ui.components.constants.LOW_PADDING_VALUE
-import com.example.movietest.ui.components.error.ERROR_DISMISS_TEXT
+import com.example.movietest.ui.theme.errorColor
 
 @Composable
 fun NotFoundDialog(
@@ -26,14 +27,14 @@ fun NotFoundDialog(
             Icon(
                 imageVector = Icons.Filled.Warning,
                 contentDescription = "Warning Icon",
-                tint = Color.Red
+                tint = errorColor
             )
         },
         title = {
             Text(
                 text = title,
                 modifier = Modifier.padding(LOW_PADDING_VALUE.dp),
-                color = Color.Red
+                color = errorColor
             )
         },
         text = {
@@ -49,7 +50,10 @@ fun NotFoundDialog(
                     onDismissRequest()
                 }
             ) {
-                Text(ERROR_DISMISS_TEXT)
+                Text(
+                    text = stringResource(id = R.string.error_dismiss_text),
+                    color = errorColor
+                )
             }
         }
     )

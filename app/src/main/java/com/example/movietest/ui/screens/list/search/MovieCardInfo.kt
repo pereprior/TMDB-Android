@@ -25,6 +25,7 @@ import com.example.movietest.ui.components.constants.MEDIUM_PADDING_VALUE
 import com.example.movietest.ui.components.constants.LOW_PADDING_VALUE
 import com.example.movietest.ui.components.constants.MOVIE_LIST_ROUTE
 import com.example.movietest.ui.components.utils.RatingBar
+import com.example.movietest.ui.theme.typography
 
 @Composable
 fun MovieCardInfo(movie: Movie, navController: NavHostController) {
@@ -68,9 +69,10 @@ private fun MoviePosterImage(posterReference: String) {
 
 @Composable
 private fun MovieTitle(title: String) {
+
     Text(
         text = title,
-        fontWeight = FontWeight.Bold,
+        style = typography.titleLarge,
         modifier = Modifier.padding(top = 8.dp),
     )
 }

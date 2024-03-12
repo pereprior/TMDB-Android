@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name" translatable="false">Movie Test</string>
-    <string name="searchbar_placeholder">Search</string>
-
+    <string name="searchbar_placeholder">Search for movies</string>
+    <string name="original_title">Original title: </string>
+    <string name="original_language">Original language: </string>
+    <string name="release_date">Release date: </string>
+    <string name="genres">Genres: </string>
+    <string name="overview">Overview: </string>
+    <string name="users_votes">Users votes:</string>
+    <string name="average">Average</string>
+    <string name="count">Count</string>
+    <string name="loading_title">Loading data</string>
+    <string name="loading_description">Please, wait few seconds</string>
+    <string name="error_404_title">ERROR 404 - NOT FOUND</string>
+    <string name="error_404_description">The name is not correct. Please, check it and try again.</string>
+    <string name="error_dismiss_text">Dismiss</string>
 </resources>

@@ -8,10 +8,11 @@ import com.example.movietest.data.sources.dto.MovieDTO
 import retrofit2.http.GET
 
 private const val KEY_ENTRY = "?api_key="
+private const val LANGUAGE_ENTRY = "&language="
 
 // Peticiones GET a la api para obtener los datos
 interface IApiService {
-    @GET("$API_ENDPOINT$KEY_ENTRY$API_KEY")
+    @GET("$API_ENDPOINT$KEY_ENTRY$API_KEY$LANGUAGE_ENTRY$")
     suspend fun getMovieList(): MovieDTO
 
     @GET("$GENRES_ENDPOINT$KEY_ENTRY$API_KEY")
