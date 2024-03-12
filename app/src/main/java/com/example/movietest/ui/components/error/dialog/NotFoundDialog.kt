@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.example.movietest.R
 import com.example.movietest.ui.components.constants.LOW_PADDING_VALUE
 import com.example.movietest.ui.theme.errorColor
+import com.example.movietest.ui.theme.typography
 
 @Composable
 fun NotFoundDialog(
@@ -33,8 +34,8 @@ fun NotFoundDialog(
         title = {
             Text(
                 text = title,
+                style = typography.titleLarge,
                 modifier = Modifier.padding(LOW_PADDING_VALUE.dp),
-                color = errorColor
             )
         },
         text = {

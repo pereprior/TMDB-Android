@@ -14,4 +14,5 @@
     <string name="error_404_title">ERROR 404 - NOT FOUND</string>
     <string name="error_404_description">The name is not correct. Please, check it and try again.</string>
     <string name="error_dismiss_text">Dismiss</string>
+    <string name="no_results">No results found</string>
 </resources>

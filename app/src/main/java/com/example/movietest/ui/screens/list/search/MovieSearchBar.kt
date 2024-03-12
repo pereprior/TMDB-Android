@@ -1,5 +1,8 @@
 package com.example.movietest.ui.screens.list.search
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -12,10 +15,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.movietest.R
 import com.example.movietest.domain.models.Movie
+import com.example.movietest.ui.components.constants.MEDIUM_PADDING_VALUE
+import com.example.movietest.ui.theme.typography
 import com.example.movietest.ui.viewmodels.SearchBarViewModel
 
 @Composable
@@ -65,6 +74,23 @@ fun MovieSearchBar(
                         movie = it,
                         navController = navController
                     )
+                }
+
+                if (filteredDataList.isEmpty()) {
+                    item {
+                        Box (
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = MEDIUM_PADDING_VALUE.dp),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = stringResource(id = R.string.no_results),
+                                style = typography.titleLarge,
+                                fontStyle = FontStyle.Italic
+                            )
+                        }
+                    }
                 }
             }
         )
