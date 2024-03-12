@@ -2,8 +2,12 @@ package com.example.movietest.ui.screens.detail
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import com.example.movietest.ui.components.constants.MOVIE_LIST_ROUTE
 import com.example.movietest.ui.components.utils.BackFab
@@ -29,13 +33,16 @@ fun MovieDetailScreen (
                 )
             }
         ) {
-            Column {
-                // Imagen de la pelicula
-                MovieViewHeader(movie)
+            Column (
+                modifier = Modifier.verticalScroll(rememberScrollState()),
+                content = {
+                    // Imagen de la pelicula
+                    MovieViewHeader(movie)
 
-                // Descripcion e informacion adicional de la pelicula
-                MovieViewBody(movie)
-            }
+                    // Descripcion e informacion adicional de la pelicula
+                    MovieViewBody(movie)
+                }
+            )
         }
     }
 }

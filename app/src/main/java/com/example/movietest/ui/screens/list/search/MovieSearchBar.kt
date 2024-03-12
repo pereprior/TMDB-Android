@@ -12,7 +12,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
+import com.example.movietest.R
 import com.example.movietest.domain.models.Movie
 import com.example.movietest.ui.viewmodels.SearchBarViewModel
 
@@ -50,7 +52,7 @@ fun MovieSearchBar(
             Icon(imageVector = Icons.Filled.List, contentDescription = "Menu Icon")
         },
         placeholder = {
-            Text(text = "Search")
+            Text(text = stringResource(id = R.string.searchbar_placeholder))
         },
         trailingIcon = {
             Icon(imageVector = Icons.Filled.Search, contentDescription = "Search Icon")

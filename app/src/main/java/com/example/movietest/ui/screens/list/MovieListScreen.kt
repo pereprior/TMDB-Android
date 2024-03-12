@@ -23,7 +23,6 @@ fun MovieListScreen(
         SearchBarScreen(
             navController = navController,
             movieList = movieList,
-            route = ""
         )
     }
 }

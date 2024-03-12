@@ -14,7 +14,7 @@ import com.example.movietest.ui.viewmodels.SearchBarViewModel
 fun SearchBarScreen(
     navController: NavHostController,
     movieList: List<Movie>,
-    route: String
+    route: String = ""
 ) {
     val searchBarViewModel = SearchBarViewModel()
     val query: String by searchBarViewModel.query.observeAsState(initial = "")

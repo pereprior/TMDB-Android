@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">MovieTest</string>
+    <string name="app_name" translatable="false">Movie Test</string>
+    <string name="searchbar_placeholder">Search</string>
+
 </resources>
