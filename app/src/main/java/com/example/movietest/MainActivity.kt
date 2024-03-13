@@ -29,7 +29,10 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 val movieViewModel by viewModels<MovieViewModel>()
 
-                NavigationController(navController, movieViewModel)
+                NavigationController(
+                    navController = navController,
+                    movieViewModel = movieViewModel
+                )
             }
         }
     }

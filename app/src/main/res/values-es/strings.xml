@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Barra de busqueda -->
     <string name="searchbar_placeholder">Buscar peliculas</string>
+
+    <!-- Pantalla para visualizar los detalles de una pelicula -->
     <string name="original_title">Título original: </string>
     <string name="original_language">Idioma original: </string>
     <string name="release_date">Fecha de lanzamiento: </string>
@@ -9,10 +12,20 @@
     <string name="users_votes">Votaciones de los usuarios: </string>
     <string name="average">Media</string>
     <string name="count">Total</string>
+
+    <!-- Mensaje de carga -->
     <string name="loading_title">Cargando datos</string>
     <string name="loading_description">Por favor, espere unos segundos</string>
+
+    <!-- Mensaje de error de busqueda -->
     <string name="error_404_title">ERROR 404 - NO ENCONTRADO</string>
     <string name="error_404_description">El nombre no es correcto. Por favor, verifique y vuelva a intentarlo.</string>
     <string name="error_dismiss_text">Descartar</string>
     <string name="no_results">No se ha econtrado ningún resultado</string>
+
+    <!-- Mensaje para salir de la aplicacion -->
+    <string name="confirm_exit">Confirmar salida</string>
+    <string name="confirm_exit_message">¿Estás seguro de que quieres salir de la aplicación?</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
 </resources>

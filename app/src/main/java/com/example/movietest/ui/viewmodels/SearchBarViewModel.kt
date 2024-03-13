@@ -8,23 +8,16 @@ import com.example.movietest.domain.models.Movie
 class SearchBarViewModel: ViewModel() {
 
     private var _query = MutableLiveData<String>()
-    private var _isActive = MutableLiveData<Boolean>()
     private var _filteredList = MutableLiveData<List<Movie>>()
     private var _openDialog = MutableLiveData<Boolean>()
 
     val query: LiveData<String> = _query
-    val isActive: LiveData<Boolean> = _isActive
     val filteredList: LiveData<List<Movie>> = _filteredList
     val openDialog: LiveData<Boolean> = _openDialog
 
     // Actualizar el texto que introduce el usuario en la barra de busqueda
     fun setQuery(value: String) {
         _query.value = value
-    }
-
-    // Gestionar la barra de datos para que se active o desactive cuando el usuario requiera
-    fun setActive(value: Boolean) {
-        _isActive.value = value
     }
 
     // Filtrar la lista de peliculas de acuerdo al texto que esté introduciendo el usuario

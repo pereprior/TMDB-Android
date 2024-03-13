@@ -29,7 +29,7 @@ import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-/*@Composable
+@Composable
 fun BottomBar(
     navController: NavHostController,
     movieViewModel: MovieViewModel
@@ -57,7 +57,7 @@ fun BottomBar(
             )
         }
     }
-}*/
+}
 
 @OptIn(DelicateCoroutinesApi::class)
 @Composable

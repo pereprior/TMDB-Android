@@ -1,6 +1,11 @@
 <resources>
+    <!-- App Name -->
     <string name="app_name" translatable="false">Movie Test</string>
+
+    <!-- Search bar -->
     <string name="searchbar_placeholder">Search for movies</string>
+
+    <!-- Screen to view the details of a movie -->
     <string name="original_title">Original title: </string>
     <string name="original_language">Original language: </string>
     <string name="release_date">Release date: </string>
@@ -9,10 +14,20 @@
     <string name="users_votes">Users votes:</string>
     <string name="average">Average</string>
     <string name="count">Count</string>
+
+    <!-- Loading message -->
     <string name="loading_title">Loading data</string>
     <string name="loading_description">Please, wait few seconds</string>
+
+    <!-- Search error message -->
     <string name="error_404_title">ERROR 404 - NOT FOUND</string>
     <string name="error_404_description">The name is not correct. Please, check it and try again.</string>
     <string name="error_dismiss_text">Dismiss</string>
     <string name="no_results">No results found</string>
+
+    <!-- Message to exit the application -->
+    <string name="confirm_exit">Confirm exit</string>
+    <string name="confirm_exit_message">Are you sure you want to exit the application?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>
