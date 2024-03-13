@@ -1,4 +1,4 @@
-package com.example.movietest.ui.screens.list.search
+package com.example.movietest.ui.screens.movies.list.search
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -38,7 +38,7 @@ fun MovieCardInfo(movie: Movie, navController: NavHostController) {
             },
         elevation = CardDefaults.cardElevation(defaultElevation = LOW_PADDING_VALUE.dp),
         shape = RoundedCornerShape(MEDIUM_PADDING_VALUE.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiary)
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
     ) {
         Column(
             modifier = Modifier

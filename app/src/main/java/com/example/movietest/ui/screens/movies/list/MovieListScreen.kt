@@ -1,5 +1,6 @@
-package com.example.movietest.ui.screens.list
+package com.example.movietest.ui.screens.movies.list
 
+import android.annotation.SuppressLint
 import androidx.activity.compose.BackHandler
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -14,10 +15,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.example.movietest.R
 import com.example.movietest.ui.components.loading.WaitScreen
-import com.example.movietest.ui.screens.list.search.SearchBarScreen
+import com.example.movietest.ui.screens.movies.list.search.SearchBarScreen
 import com.example.movietest.ui.viewmodels.MovieViewModel
 import kotlin.system.exitProcess
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MovieListScreen(
     movieViewModel: MovieViewModel,

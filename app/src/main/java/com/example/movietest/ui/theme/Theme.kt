@@ -11,14 +11,25 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val LightColorScheme = lightColorScheme(
-    primary = primaryColor,
-    secondary = LightGrey40,
-    tertiary = DarkWhite40,
-    background = LightGrey80,
-    surface = LightGrey80,
+    primary = MainColor,
+    secondary = LigthSecondary,
+    tertiary = LigthTertiary,
+    background = LigthBackground,
+    surface = LigthSurface,
     onPrimary = LightGrey80,
     onSecondary = LightBlack80,
     onTertiary = DarkGrey80,
+)
+
+private val DarkColorScheme = lightColorScheme(
+    primary = MainColor,
+    secondary = DarkSecondary,
+    tertiary = DarkTertiary,
+    background = DarkBackground,
+    surface = DarkSurface,
+    onPrimary = DarkWhite40,
+    onSecondary = LightGrey40,
+    onTertiary = LightGrey40,
 )
 
 @Composable
@@ -26,7 +37,7 @@ fun MovieTestTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colorScheme = LightColorScheme
+    val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {

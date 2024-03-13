@@ -9,7 +9,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
 import com.example.movietest.ui.theme.DarkGrey80
-import com.example.movietest.ui.theme.Orange
+import com.example.movietest.ui.theme.StarColor
 
 private const val FILLED_RATING_VALUE = "★"
 private const val EMPTY_RATING_VALUE = "☆"
@@ -19,7 +19,7 @@ fun RatingBar(
     rating: Double = 0.0,
     stars: Int = 10,
     starSize: Int = 24,
-    filledStarColor: Color = Orange,
+    filledStarColor: Color = StarColor,
     emptyStarColor: Color = DarkGrey80
 ) {
     val filledStars = rating.toInt()

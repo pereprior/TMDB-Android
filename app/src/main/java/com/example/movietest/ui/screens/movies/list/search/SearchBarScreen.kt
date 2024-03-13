@@ -1,4 +1,4 @@
-package com.example.movietest.ui.screens.list.search
+package com.example.movietest.ui.screens.movies.list.search
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.material3.AlertDialog

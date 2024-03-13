@@ -13,7 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.movietest.R
 import com.example.movietest.ui.components.constants.LOW_PADDING_VALUE
-import com.example.movietest.ui.theme.errorColor
+import com.example.movietest.ui.theme.ErrorColor
 import com.example.movietest.ui.theme.typography
 
 @Composable
@@ -28,7 +28,7 @@ fun NotFoundDialog(
             Icon(
                 imageVector = Icons.Filled.Warning,
                 contentDescription = "Warning Icon",
-                tint = errorColor
+                tint = ErrorColor
             )
         },
         title = {
@@ -53,7 +53,7 @@ fun NotFoundDialog(
             ) {
                 Text(
                     text = stringResource(id = R.string.error_dismiss_text),
-                    color = errorColor
+                    color = ErrorColor
                 )
             }
         }

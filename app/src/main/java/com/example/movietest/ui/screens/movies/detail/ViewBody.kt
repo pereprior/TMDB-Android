@@ -1,4 +1,4 @@
-package com.example.movietest.ui.screens.detail
+package com.example.movietest.ui.screens.movies.detail
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,6 +18,7 @@ import com.example.movietest.R
 import com.example.movietest.domain.models.Movie
 import com.example.movietest.ui.components.constants.HIGH_PADDING_VALUE
 import com.example.movietest.ui.components.constants.MEDIUM_PADDING_VALUE
+import com.example.movietest.ui.components.constants.TOP_BAR_PADDING_VALUE
 import com.example.movietest.ui.components.utils.BoldFormatText
 import com.example.movietest.ui.components.utils.BoldListFormatText
 import com.example.movietest.ui.components.utils.CircularProgress
@@ -25,6 +26,9 @@ import com.example.movietest.ui.components.utils.CircularProgress
 @Composable
 fun MovieViewBody(movie: Movie) {
     Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(HIGH_PADDING_VALUE.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         content = {
             Card(

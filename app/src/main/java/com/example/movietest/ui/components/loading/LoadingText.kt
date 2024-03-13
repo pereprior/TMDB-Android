@@ -7,7 +7,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import com.example.movietest.ui.theme.typography
 import kotlinx.coroutines.delay
 
 private const val LOADING_VALUE = "."
@@ -15,7 +17,10 @@ private const val MAX_DOTS = 3
 private const val DOT_GROUP = 1
 
 @Composable
-fun LoadingText(message: String) {
+fun LoadingText(
+    message: String,
+    style: TextStyle = typography.bodyLarge,
+) {
     var valueCount by rememberSaveable { mutableIntStateOf(1) }
 
     // Mientras dure la pantalla de carga, ira apareciendo y despareciendo para dar sensacion de carga
@@ -37,5 +42,8 @@ fun LoadingText(message: String) {
         }
     }
 
-    Text(text = loadingText)
+    Text(
+        text = loadingText,
+        style = style
+    )
 }
