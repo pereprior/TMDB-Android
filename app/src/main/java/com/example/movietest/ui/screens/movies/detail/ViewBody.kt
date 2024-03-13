@@ -18,7 +18,6 @@ import com.example.movietest.R
 import com.example.movietest.domain.models.Movie
 import com.example.movietest.ui.components.constants.HIGH_PADDING_VALUE
 import com.example.movietest.ui.components.constants.MEDIUM_PADDING_VALUE
-import com.example.movietest.ui.components.constants.TOP_BAR_PADDING_VALUE
 import com.example.movietest.ui.components.utils.BoldFormatText
 import com.example.movietest.ui.components.utils.BoldListFormatText
 import com.example.movietest.ui.components.utils.CircularProgress

@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.movietest.ui.theme.MainColor
+import com.example.movietest.ui.components.constants.MEDIUM_PADDING_VALUE
 
 @Composable
 fun BottomBarScreen(
@@ -29,11 +29,10 @@ fun BottomBarScreen(
     // Se mostrará de manera visual la pantalla en la que nos encontramos
     val background =
         if (isSelected) MaterialTheme.colorScheme.tertiary else Color.Transparent
-    val contentColor =
-        if (isSelected) Color.White else Color.Black
 
     Box(
         modifier = Modifier
+            .padding(MEDIUM_PADDING_VALUE.dp)
             .clip(CircleShape)
             .background(background)
             .clickable(
@@ -48,14 +47,14 @@ fun BottomBarScreen(
             Icon(
                 painter = painterResource(id = screen.icon),
                 contentDescription = "icon",
-                tint = contentColor
+                tint = Color.White
             )
 
             // El texto solo se muestra si la pantalla esta seleccionada
             AnimatedVisibility(visible = isSelected) {
                 Text(
                     text = screen.title,
-                    color = contentColor
+                    color = Color.White
                 )
             }
         }
