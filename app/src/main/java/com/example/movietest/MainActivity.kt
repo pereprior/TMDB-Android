@@ -26,11 +26,13 @@ import com.example.movietest.ui.components.constants.MOVIE_LIST_ROUTE
 import com.example.movietest.ui.components.constants.FAVORITE_LIST_ROUTE
 import com.example.movietest.ui.screens.movies.detail.MovieDetailScreen
 import com.example.movietest.ui.screens.movies.list.MovieListScreen
-import com.example.movietest.ui.screens.movies.list.FavoritesScreen
+import com.example.movietest.ui.screens.movies.list.FavoritesListScreen
 import com.example.movietest.ui.theme.MovieTestTheme
 import com.example.movietest.ui.viewmodels.MovieViewModel
 import com.example.movietest.ui.viewmodels.RoomViewModel
 import dagger.hilt.android.AndroidEntryPoint
+
+private const val ANIMATION_DURATION = 700
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -38,21 +40,23 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MovieTestTheme {
-                val isdarkTheme = rememberSaveable { mutableStateOf(false) }
-                val navController = rememberNavController()
-                val movieViewModel by viewModels<MovieViewModel>()
-                val db = Room.databaseBuilder(
-                    this,
-                    FavoriteMovieDataBase::class.java,
-                    "MovieTestDB"
-                ).build()
-                val dao = db.dao
-                val repository = MovieRoomRepository(dao)
-                val roomViewModel = RoomViewModel(repository)
+            val isdarkTheme = rememberSaveable { mutableStateOf(false) }
+            val navController = rememberNavController()
+            val movieViewModel by viewModels<MovieViewModel>()
+            // TODO: Implementar la inyeccion de dependencias para la base de datos
+            val db = Room.databaseBuilder(
+                this,
+                FavoriteMovieDataBase::class.java,
+                "MovieTestDB"
+            ).build()
+            val dao = db.dao
+            val repository = MovieRoomRepository(dao)
+            val roomViewModel = RoomViewModel(repository)
 
-                // Configuramos el tema de la aplicacion
-                MovieTestTheme(darkTheme = isdarkTheme.value) {
+            MovieTestTheme (
+                // Configuración para poder cambiar el tema dentro de la aplicación
+                darkTheme = isdarkTheme.value,
+                content = {
                     Scaffold(
                         topBar = {
                             // Barra superior con el cambio de tema oscuro/claro
@@ -72,7 +76,7 @@ class MainActivity : ComponentActivity() {
                         }
                     )
                 }
-            }
+            )
         }
     }
 
@@ -84,26 +88,26 @@ class MainActivity : ComponentActivity() {
     ) {
         NavHost(
             navController = navController,
-            startDestination = MOVIE_LIST_ROUTE,
-
+            startDestination = MOVIE_LIST_ROUTE
         ) {
             // Navegación a la pantalla principal con la lista de peliculas
             composable(
                 route = MOVIE_LIST_ROUTE,
-                // Transiciones entre pantallas
+                // Animacion para las transiciones entre pantallas
                 enterTransition = {
                     slideIntoContainer(
-                        AnimatedContentTransitionScope.SlideDirection.Left,
-                        animationSpec = tween(700)
+                        AnimatedContentTransitionScope.SlideDirection.Right,
+                        animationSpec = tween(ANIMATION_DURATION)
                     )
                 },
                 exitTransition = {
                     slideOutOfContainer(
-                        AnimatedContentTransitionScope.SlideDirection.Right,
-                        animationSpec = tween(700)
+                        AnimatedContentTransitionScope.SlideDirection.Left,
+                        animationSpec = tween(ANIMATION_DURATION)
                     )
                 }
             ) {
+                // Listado de peliculas
                 MovieListScreen(
                     movieViewModel = movieViewModel,
                     navController = navController
@@ -120,6 +124,7 @@ class MainActivity : ComponentActivity() {
                 )
             ) { backStackEntry ->
                 val selectedMovie = backStackEntry.arguments?.getString("selectedMovie")
+                // Detalles de la pelicula seleccionada
                 MovieDetailScreen(
                     movieViewModel = movieViewModel,
                     roomViewModel = roomViewModel,
@@ -131,7 +136,8 @@ class MainActivity : ComponentActivity() {
             composable(
                 route = FAVORITE_LIST_ROUTE
             ) {
-                FavoritesScreen(
+                // Listado de peliculas favoritas
+                FavoritesListScreen(
                     navController = navController,
                     roomViewModel = roomViewModel
                 )

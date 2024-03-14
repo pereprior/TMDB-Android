@@ -21,7 +21,7 @@ fun WaitScreen() {
         verticalArrangement = Arrangement.Center
     ) {
         // Icono de la pantalla de carga
-        LoadingImage(R.drawable.icon)
+        LoadingImage(R.drawable.ic_launcher_icon)
         Spacer(modifier = Modifier.padding(LOW_PADDING_VALUE.dp))
 
         // Texto de la pantalla de carga

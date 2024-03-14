@@ -16,8 +16,7 @@ import com.example.movietest.ui.components.constants.MEDIUM_PADDING_VALUE
 @Composable
 fun MovieCard(
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit,
-
+    content: @Composable () -> Unit
 ) {
     Card(
         modifier = modifier

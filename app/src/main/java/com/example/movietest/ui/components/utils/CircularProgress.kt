@@ -25,7 +25,7 @@ import com.example.movietest.ui.components.constants.LOW_PADDING_VALUE
 
 private const val MIN_VALUE = 0f
 private const val MAX_VALUE = 10f
-private const val ANIMATION_DURATION_IN_MILLIS = 1000
+private const val ANIMATION_DURATION = 1000
 private const val CIRCLE_SIZE = 120
 
 @Composable
@@ -42,7 +42,7 @@ fun CircularProgress(value: Float, description: String) {
     val animatedProgress by animateFloatAsState(
         targetValue = currentProgress,
         animationSpec = tween(
-            durationMillis = ANIMATION_DURATION_IN_MILLIS,
+            durationMillis = ANIMATION_DURATION,
             easing = LinearOutSlowInEasing
         ),
         label = "Circle Animation"
@@ -53,11 +53,11 @@ fun CircularProgress(value: Float, description: String) {
     ) {
         // Borde del circulo
         CircularProgressIndicator(
-            progress = animatedProgress,
-            color = MaterialTheme.colorScheme.primary,
+            progress = { animatedProgress },
             modifier = Modifier
                 .fillMaxSize()
                 .padding(LOW_PADDING_VALUE.dp),
+            color = MaterialTheme.colorScheme.primary,
             strokeWidth = LOW_PADDING_VALUE.dp,
         )
 

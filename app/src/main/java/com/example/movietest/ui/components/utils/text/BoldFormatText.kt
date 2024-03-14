@@ -1,4 +1,4 @@
-package com.example.movietest.ui.components.utils
+package com.example.movietest.ui.components.utils.text
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
@@ -13,7 +13,10 @@ import com.example.movietest.ui.components.constants.HIGH_PADDING_VALUE
 import com.example.movietest.ui.theme.typography
 
 @Composable
-fun BoldFormatText(title: String, text: String) {
+fun BoldFormatText(
+    title: String,
+    text: String = ""
+) {
     Text(
         text = buildAnnotatedString {
             // Titulo del texto en negrita
@@ -29,7 +32,10 @@ fun BoldFormatText(title: String, text: String) {
 }
 
 @Composable
-fun BoldListFormatText(title: String, list: List<String>) {
+fun BoldListFormatText(
+    title: String,
+    list: List<String>
+) {
     Text(
         text = buildAnnotatedString {
             // Titulo del texto en negrita

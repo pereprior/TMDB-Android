@@ -1,6 +1,7 @@
 package com.example.movietest.ui.components.utils
 
 import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -8,19 +9,19 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
-import com.example.movietest.ui.theme.DarkGrey80
 import com.example.movietest.ui.theme.StarColor
 
 private const val FILLED_RATING_VALUE = "★"
 private const val EMPTY_RATING_VALUE = "☆"
 
+// Barra para mostrar la puntuacion de las peliculas
 @Composable
 fun RatingBar(
     rating: Double = 0.0,
     stars: Int = 10,
     starSize: Int = 24,
     filledStarColor: Color = StarColor,
-    emptyStarColor: Color = DarkGrey80
+    emptyStarColor: Color = MaterialTheme.colorScheme.onSurface
 ) {
     val filledStars = rating.toInt()
 

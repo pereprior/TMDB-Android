@@ -4,10 +4,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.navigation.NavHostController
+import com.example.movietest.ui.screens.movies.list.view.MoviesListView
 import com.example.movietest.ui.viewmodels.RoomViewModel
 
+// Pantalla que muestra el listado de peliculas favoritas del usuario
 @Composable
-fun FavoritesScreen(
+fun FavoritesListScreen(
     navController: NavHostController,
     roomViewModel: RoomViewModel
 ) {
@@ -15,6 +17,6 @@ fun FavoritesScreen(
 
     MoviesListView(
         movieList = favoritesList,
-        navHostController = navController
+        navController = navController
     )
 }

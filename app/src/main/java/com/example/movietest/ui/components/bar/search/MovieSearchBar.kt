@@ -1,9 +1,9 @@
-package com.example.movietest.ui.screens.movies.list.search
+package com.example.movietest.ui.components.bar.search
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -19,10 +19,10 @@ import androidx.navigation.NavHostController
 import com.example.movietest.R
 import com.example.movietest.domain.models.Movie
 import com.example.movietest.ui.components.constants.TOP_BAR_PADDING_VALUE
-import com.example.movietest.ui.screens.movies.list.MoviesListView
-import com.example.movietest.ui.viewmodels.RoomViewModel
+import com.example.movietest.ui.screens.movies.list.view.MoviesListView
 import com.example.movietest.ui.viewmodels.SearchBarViewModel
 
+// Barra de busqueda de datos
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
 fun MovieSearchBar(
@@ -34,9 +34,7 @@ fun MovieSearchBar(
 ) {
     SearchBar(
         query = query,
-        onQueryChange = {
-            searchBarViewModel.setQuery(it)
-        },
+        onQueryChange = { searchBarViewModel.setQuery(it) },
         onSearch = {
             // Comprobamos que en la lista existe una pelicula igual que el que ha buscado el usuario
             if (filteredDataList.any { it.title.equals(query, ignoreCase = true) }) {
@@ -48,9 +46,7 @@ fun MovieSearchBar(
         },
         active = true,
         onActiveChange = {},
-        leadingIcon = {
-            Icon(imageVector = Icons.Filled.List, contentDescription = "Menu Icon")
-        },
+        leadingIcon = { Icon(imageVector = Icons.AutoMirrored.Filled.List, contentDescription = "Menu Icon") },
         placeholder = {
             Text(
                 text = stringResource(id = R.string.searchbar_placeholder),
@@ -66,9 +62,10 @@ fun MovieSearchBar(
             )
         },
         content = {
+            // Muestra la lista de peliculas conforme a la busqueda del usuario
             MoviesListView(
                 movieList = filteredDataList,
-                navHostController = navController
+                navController = navController
             )
         },
         modifier = Modifier
@@ -76,7 +73,7 @@ fun MovieSearchBar(
             .padding(top = TOP_BAR_PADDING_VALUE.dp),
         colors = SearchBarDefaults.colors(
             containerColor = MaterialTheme.colorScheme.background,
-            dividerColor = MaterialTheme.colorScheme.background
+            dividerColor = MaterialTheme.colorScheme.onBackground
         )
     )
 }

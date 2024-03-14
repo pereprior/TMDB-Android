@@ -1,4 +1,4 @@
-package com.example.movietest.ui.screens.movies.list.search
+package com.example.movietest.ui.screens.movies.list.view
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -7,11 +7,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.example.movietest.R
 import com.example.movietest.domain.models.Movie
-import com.example.movietest.ui.components.error.dialog.NotFoundDialog
+import com.example.movietest.ui.components.bar.search.MovieSearchBar
+import com.example.movietest.ui.components.error.NotFoundDialog
 import com.example.movietest.ui.viewmodels.SearchBarViewModel
 
 @Composable
-fun SearchBarScreen(
+fun SearchBarView(
     navController: NavHostController,
     movieList: List<Movie>,
     route: String = ""
@@ -23,7 +24,7 @@ fun SearchBarScreen(
 
     searchBarViewModel.setDataList(movieList, query)
 
-    // Pantalla principal que muestra el listado de peliculas
+    // Pantalla de busqueda de peliculas
     MovieSearchBar(
         query = query,
         searchBarViewModel = searchBarViewModel,

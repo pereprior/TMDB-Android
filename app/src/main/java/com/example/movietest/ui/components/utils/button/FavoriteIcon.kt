@@ -1,7 +1,9 @@
-package com.example.movietest.ui.components.utils
+package com.example.movietest.ui.components.utils.button
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Icon
@@ -27,7 +29,12 @@ fun FavoriteIcon(
     var isFilled by rememberSaveable { mutableStateOf(false) }
 
     IconButton(
-        modifier = Modifier.padding(LOW_PADDING_VALUE.dp),
+        modifier = Modifier
+            .padding(LOW_PADDING_VALUE.dp)
+            .background(
+                color = Color.Black.copy(alpha = 0.3f),
+                shape = CircleShape
+            ),
         onClick = {
             /*if (isFilled) roomViewModel.removeMovie(movie)
             else roomViewModel.saveMovie(movie)*/
@@ -35,6 +42,7 @@ fun FavoriteIcon(
             isFilled = !isFilled
         }
     ) {
+        // Icono del corazon
         Icon(
             modifier = Modifier.fillMaxSize(0.8f),
             imageVector = Icons.Filled.Favorite,
