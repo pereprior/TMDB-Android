@@ -15,9 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.movietest.ui.components.constants.LOW_PADDING_VALUE
 import com.example.movietest.ui.components.constants.MEDIUM_PADDING_VALUE
 
 @Composable
@@ -41,11 +41,11 @@ fun BottomBarScreen(
     ) {
         Row(
             modifier = Modifier
-                .padding(horizontal = 20.dp, vertical = 8.dp),
+                .padding(horizontal = MEDIUM_PADDING_VALUE.dp, vertical = LOW_PADDING_VALUE.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
-                painter = painterResource(id = screen.icon),
+                imageVector = screen.icon,
                 contentDescription = "icon",
                 tint = Color.White
             )

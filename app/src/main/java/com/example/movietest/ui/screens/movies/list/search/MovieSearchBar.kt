@@ -1,12 +1,7 @@
 package com.example.movietest.ui.screens.movies.list.search
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Search
@@ -17,25 +12,16 @@ import androidx.compose.material3.SearchBar
 import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.movietest.R
 import com.example.movietest.domain.models.Movie
-import com.example.movietest.ui.components.constants.MEDIUM_PADDING_VALUE
 import com.example.movietest.ui.components.constants.TOP_BAR_PADDING_VALUE
-import com.example.movietest.ui.components.loading.LoadingText
-import com.example.movietest.ui.theme.typography
+import com.example.movietest.ui.screens.movies.list.MoviesListView
+import com.example.movietest.ui.viewmodels.RoomViewModel
 import com.example.movietest.ui.viewmodels.SearchBarViewModel
-import kotlinx.coroutines.delay
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
@@ -45,6 +31,7 @@ fun MovieSearchBar(
     filteredDataList: List<Movie>,
     navController: NavHostController,
     route: String,
+    roomViewModel: RoomViewModel,
 ) {
     SearchBar(
         query = query,
@@ -72,7 +59,11 @@ fun MovieSearchBar(
             Icon(imageVector = Icons.Filled.Search, contentDescription = "Search Icon")
         },
         content = {
-            DataList(filteredDataList, navController)
+            MoviesListView(
+                movieList = filteredDataList,
+                navHostController = navController,
+                roomViewModel = roomViewModel
+            )
         },
         modifier = Modifier
             .fillMaxSize()
@@ -82,51 +73,4 @@ fun MovieSearchBar(
             dividerColor = MaterialTheme.colorScheme.background
         )
     )
-}
-
-@Composable
-private fun DataList(
-    filteredDataList: List<Movie>,
-    navController: NavHostController
-) {
-    var showSearching by remember { mutableStateOf(true) }
-
-    LaunchedEffect(key1 = true) {
-        delay(3000L)
-        showSearching = false
-    }
-
-    if (filteredDataList.isEmpty()) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = MEDIUM_PADDING_VALUE.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            if (showSearching) {
-                LoadingText(
-                    message = stringResource(id = R.string.loading_description),
-                    style = typography.titleLarge
-                )
-            } else {
-                Text(
-                    text = stringResource(id = R.string.no_results),
-                    style = typography.titleLarge,
-                    fontStyle = FontStyle.Italic
-                )
-            }
-        }
-    }
-
-    LazyVerticalGrid(
-        columns = GridCells.Adaptive(minSize = 400.dp),
-        modifier = Modifier.fillMaxSize()
-    ) {
-        items(filteredDataList) { movie ->
-            MovieCardInfo(
-                movie = movie,
-                navController = navController
-            )
-        }
-    }
 }

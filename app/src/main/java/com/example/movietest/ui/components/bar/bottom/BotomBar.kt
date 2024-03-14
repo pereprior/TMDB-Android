@@ -4,31 +4,31 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.movietest.R
 import com.example.movietest.ui.components.constants.MOVIE_LIST_ROUTE
-import com.example.movietest.ui.components.constants.SETTINGS_ROUTE
+import com.example.movietest.ui.components.constants.FAVORITE_LIST_ROUTE
 
 private val barOptions = listOf(
     // Pantalla para visualizar las peliculas
     BottomBarOption(
         route = MOVIE_LIST_ROUTE,
         title = "Movies",
-        icon = R.drawable.ic_movie
+        icon = Icons.Filled.PlayArrow
     ),
 
     // Pantalla para cambiar los ajustes de la app
     BottomBarOption(
-        route = SETTINGS_ROUTE,
-        title = "Settings",
-        icon = R.drawable.ic_movie
+        route = FAVORITE_LIST_ROUTE,
+        title = "Favorites",
+        icon = Icons.Filled.Favorite
     )
 )
 
@@ -44,7 +44,7 @@ fun BottomBar(navController: NavHostController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.Black.copy(alpha = 0.2f)),
+            .background(Color.Black.copy(alpha = 0.3f)),
         horizontalArrangement = Arrangement.SpaceEvenly,
     ) {
         // Mostrar los iconos para navegar entre las pantallas

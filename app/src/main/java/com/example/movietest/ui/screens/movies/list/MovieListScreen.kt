@@ -17,12 +17,14 @@ import com.example.movietest.R
 import com.example.movietest.ui.components.loading.WaitScreen
 import com.example.movietest.ui.screens.movies.list.search.SearchBarScreen
 import com.example.movietest.ui.viewmodels.MovieViewModel
+import com.example.movietest.ui.viewmodels.RoomViewModel
 import kotlin.system.exitProcess
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MovieListScreen(
     movieViewModel: MovieViewModel,
+    roomViewModel: RoomViewModel,
     navController: NavHostController
 ) {
     val movieList by movieViewModel.movieList.observeAsState(initial = emptyList())
@@ -55,6 +57,7 @@ fun MovieListScreen(
         SearchBarScreen(
             navController = navController,
             movieList = movieList,
+            roomViewModel = roomViewModel
         )
 
         BackHandler(enabled = !showExitDialog) {

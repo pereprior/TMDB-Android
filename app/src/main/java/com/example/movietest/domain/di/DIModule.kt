@@ -2,8 +2,8 @@ package com.example.movietest.domain.di
 
 import android.app.Application
 import com.example.movietest.data.constants.API_URL
-import com.example.movietest.data.repositories.MovieRepositoryImpl
-import com.example.movietest.data.sources.local.MovieJsonDataSource
+import com.example.movietest.data.repositories.MovieApiRepository
+import com.example.movietest.data.sources.local.fallback.MovieJsonDataSource
 import com.example.movietest.data.sources.remote.IApiService
 import com.example.movietest.data.sources.remote.MovieRemoteDataSource
 import dagger.Module
@@ -36,8 +36,8 @@ object DIModule {
     fun provideRepository(
         api: IApiService,
         application: Application
-    ): MovieRepositoryImpl {
-        return MovieRepositoryImpl(
+    ): MovieApiRepository {
+        return MovieApiRepository(
             MovieRemoteDataSource(api),
             MovieJsonDataSource(application)
         )

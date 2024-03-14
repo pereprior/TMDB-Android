@@ -17,15 +17,19 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import androidx.room.Room
+import com.example.movietest.data.repositories.MovieRoomRepository
+import com.example.movietest.data.sources.local.room.FavoriteMovieDataBase
 import com.example.movietest.ui.components.bar.bottom.BottomBar
 import com.example.movietest.ui.components.bar.top.TopBar
 import com.example.movietest.ui.components.constants.MOVIE_LIST_ROUTE
-import com.example.movietest.ui.components.constants.SETTINGS_ROUTE
+import com.example.movietest.ui.components.constants.FAVORITE_LIST_ROUTE
 import com.example.movietest.ui.screens.movies.detail.MovieDetailScreen
 import com.example.movietest.ui.screens.movies.list.MovieListScreen
-import com.example.movietest.ui.screens.settings.SettingsScreen
+import com.example.movietest.ui.screens.movies.list.FavoritesScreen
 import com.example.movietest.ui.theme.MovieTestTheme
 import com.example.movietest.ui.viewmodels.MovieViewModel
+import com.example.movietest.ui.viewmodels.RoomViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,26 +39,39 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MovieTestTheme {
+                val isdarkTheme = rememberSaveable { mutableStateOf(false) }
                 val navController = rememberNavController()
                 val movieViewModel by viewModels<MovieViewModel>()
+                val db = Room.databaseBuilder(
+                    this,
+                    FavoriteMovieDataBase::class.java,
+                    "MovieTestDB"
+                ).build()
+                val dao = db.dao
+                val repository = MovieRoomRepository(dao)
+                val roomViewModel = RoomViewModel(repository)
 
-                Scaffold(
-                    topBar = {
-                        val darkTheme = rememberSaveable { mutableStateOf(false) }
-                        MovieTestTheme(darkTheme = darkTheme.value) {
-                            TopBar(darkTheme)
+                // Configuramos el tema de la aplicacion
+                MovieTestTheme(darkTheme = isdarkTheme.value) {
+                    Scaffold(
+                        topBar = {
+                            // Barra superior con el cambio de tema oscuro/claro
+                            TopBar(isdarkTheme)
+                        },
+                        bottomBar = {
+                            // Barra inferior con la navegacion entre las pantallas
+                            BottomBar(navController)
+                        },
+                        content = {
+                            // Controlador de la navegacion entre las pantallas
+                            NavigationController(
+                                navController = navController,
+                                movieViewModel = movieViewModel,
+                                roomViewModel = roomViewModel
+                            )
                         }
-                    },
-                    bottomBar = {
-                        BottomBar(navController)
-                    },
-                    content = {
-                        NavigationController(
-                            navController = navController,
-                            movieViewModel = movieViewModel
-                        )
-                    }
-                )
+                    )
+                }
             }
         }
     }
@@ -62,7 +79,8 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun NavigationController(
         navController: NavHostController,
-        movieViewModel: MovieViewModel
+        movieViewModel: MovieViewModel,
+        roomViewModel: RoomViewModel
     ) {
         NavHost(
             navController = navController,
@@ -88,6 +106,7 @@ class MainActivity : ComponentActivity() {
             ) {
                 MovieListScreen(
                     movieViewModel = movieViewModel,
+                    roomViewModel = roomViewModel,
                     navController = navController
                 )
             }
@@ -104,17 +123,18 @@ class MainActivity : ComponentActivity() {
                 val selectedMovie = backStackEntry.arguments?.getString("selectedMovie")
                 MovieDetailScreen(
                     movieViewModel = movieViewModel,
+                    roomViewModel = roomViewModel,
                     selectedMovie = selectedMovie,
                 )
             }
 
-            // Navegacion a la pantalla de ajustes
+            // Navegacion a la pantalla de favoritos
             composable(
-                route = SETTINGS_ROUTE
+                route = FAVORITE_LIST_ROUTE
             ) {
-                SettingsScreen(
+                FavoritesScreen(
                     navController = navController,
-                    movieViewModel = movieViewModel
+                    roomViewModel = roomViewModel
                 )
             }
         }

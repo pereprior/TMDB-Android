@@ -1,14 +1,14 @@
 package com.example.movietest.data.repositories
 
-import com.example.movietest.data.mappers.MovieDataMapper
+import com.example.movietest.data.mappers.MovieGsonDataMapper
 import com.example.movietest.data.sources.dto.GenresDTO
 import com.example.movietest.data.sources.dto.MovieDTO
-import com.example.movietest.data.sources.local.MovieJsonDataSource
+import com.example.movietest.data.sources.local.fallback.MovieJsonDataSource
 import com.example.movietest.data.sources.remote.MovieRemoteDataSource
 import com.example.movietest.domain.models.Movie
 import com.example.movietest.domain.repositories.IMovieRepository
 
-class MovieRepositoryImpl (
+class MovieApiRepository (
     private val remoteDataSource: MovieRemoteDataSource,
     private val localDataSource: MovieJsonDataSource
 ): IMovieRepository {
@@ -25,6 +25,6 @@ class MovieRepositoryImpl (
             movies = localDataSource.getMovieListFromFallback()
         }
 
-        return MovieDataMapper(movies, genres).convert()
+        return MovieGsonDataMapper(movies, genres).convert()
     }
 }

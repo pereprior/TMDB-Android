@@ -5,11 +5,11 @@ import com.example.movietest.data.sources.dto.MovieDTO
 import com.example.movietest.domain.models.Movie
 
 // Clase que convierte el DTO en el modelo que maneja la ui
-class MovieDataMapper(
+class MovieGsonDataMapper(
     private val movieDTO: MovieDTO,
     private val genresDTO: GenresDTO
-) : IDataMapper {
-    override fun convert(): List<Movie> {
+) {
+    fun convert(): List<Movie> {
         val movies = ArrayList<Movie>()
 
         // Buscamos los generos de la pelicula por su id en la lista de generos
@@ -21,7 +21,7 @@ class MovieDataMapper(
             movies.add(
                 Movie(
                     imageReference = movieResult.backdropPath,
-                    genres = movieGenres,
+                    //genres = movieGenres,
                     originalLanguage = movieResult.originalLanguage,
                     originalTitle = movieResult.originalTitle,
                     overview = movieResult.overview,

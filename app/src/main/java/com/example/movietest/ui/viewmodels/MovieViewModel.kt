@@ -10,6 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+// Gestionar las peliculas que obtenemos de la API
 @HiltViewModel
 class MovieViewModel @Inject constructor(
     private val getMovieListUseCase: GetMovieListUseCase

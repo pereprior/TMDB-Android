@@ -70,7 +70,9 @@ fun MovieViewBody(movie: Movie) {
 }
 
 @Composable
-private fun VotesCircularComponent(movie: Movie) {
+private fun VotesCircularComponent(
+    movie: Movie
+) {
     Text(
         text = stringResource(id = R.string.users_votes),
         fontWeight = FontWeight.Bold
