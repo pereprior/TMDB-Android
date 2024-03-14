@@ -11,8 +11,6 @@ private val languageMapping = mapOf(
 
 fun getLanguageKeyForApi(): String {
     val language: String = Locale.getDefault().language
-    Log.d("LanguageGetter", "Language: $language")
-
     // Que busque si el idioma esta en el mapa, si no esta que devuelva el idioma por defecto
     return languageMapping[language] ?: "en-US"
 }

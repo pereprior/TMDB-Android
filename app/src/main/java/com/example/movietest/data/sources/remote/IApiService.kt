@@ -12,17 +12,17 @@ import retrofit2.http.Query
 
 
 private const val DEFAULT_URL_SET = "$KEY_ENTRY$API_KEY$LANGUAGE_ENTRY"
-val DEFAULT_LANGUAGE = getLanguageKeyForApi()
+const val language = "es-ES"
 
 // Peticiones GET a la api para obtener los datos
 interface IApiService {
-    @GET("$API_ENDPOINT$DEFAULT_URL_SET")
+    @GET("$API_ENDPOINT$DEFAULT_URL_SET$language")
     suspend fun getMovieList(
-        @Query("language") language:String = DEFAULT_LANGUAGE
+        @Query("language") language: String
     ): MovieDTO
 
     @GET("$GENRES_ENDPOINT$DEFAULT_URL_SET")
     suspend fun getGenresList(
-        @Query("language") language:String = DEFAULT_LANGUAGE
+        @Query("language") language: String
     ): GenresDTO
 }
