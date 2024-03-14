@@ -24,7 +24,6 @@ import kotlin.system.exitProcess
 @Composable
 fun MovieListScreen(
     movieViewModel: MovieViewModel,
-    roomViewModel: RoomViewModel,
     navController: NavHostController
 ) {
     val movieList by movieViewModel.movieList.observeAsState(initial = emptyList())
@@ -56,8 +55,7 @@ fun MovieListScreen(
         // Barra de busqueda con la lista de peliculas disponibles
         SearchBarScreen(
             navController = navController,
-            movieList = movieList,
-            roomViewModel = roomViewModel
+            movieList = movieList
         )
 
         BackHandler(enabled = !showExitDialog) {

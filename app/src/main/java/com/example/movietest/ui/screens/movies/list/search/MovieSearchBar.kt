@@ -30,8 +30,7 @@ fun MovieSearchBar(
     searchBarViewModel: SearchBarViewModel,
     filteredDataList: List<Movie>,
     navController: NavHostController,
-    route: String,
-    roomViewModel: RoomViewModel,
+    route: String
 ) {
     SearchBar(
         query = query,
@@ -53,16 +52,23 @@ fun MovieSearchBar(
             Icon(imageVector = Icons.Filled.List, contentDescription = "Menu Icon")
         },
         placeholder = {
-            Text(text = stringResource(id = R.string.searchbar_placeholder))
+            Text(
+                text = stringResource(id = R.string.searchbar_placeholder),
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onBackground
+            )
         },
         trailingIcon = {
-            Icon(imageVector = Icons.Filled.Search, contentDescription = "Search Icon")
+            Icon(
+                imageVector = Icons.Filled.Search,
+                contentDescription = "Search Icon",
+                tint = MaterialTheme.colorScheme.onBackground
+            )
         },
         content = {
             MoviesListView(
                 movieList = filteredDataList,
-                navHostController = navController,
-                roomViewModel = roomViewModel
+                navHostController = navController
             )
         },
         modifier = Modifier

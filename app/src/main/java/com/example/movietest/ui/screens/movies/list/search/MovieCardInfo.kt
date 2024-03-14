@@ -23,7 +23,6 @@ import com.example.movietest.ui.components.constants.HIGH_PADDING_VALUE
 import com.example.movietest.ui.components.constants.MEDIUM_PADDING_VALUE
 import com.example.movietest.ui.components.constants.LOW_PADDING_VALUE
 import com.example.movietest.ui.components.constants.MOVIE_LIST_ROUTE
-import com.example.movietest.ui.components.utils.FavoriteIcon
 import com.example.movietest.ui.components.utils.RatingBar
 import com.example.movietest.ui.theme.typography
 import com.example.movietest.ui.viewmodels.RoomViewModel
@@ -32,7 +31,6 @@ import com.example.movietest.ui.viewmodels.RoomViewModel
 fun MovieCardInfo(
     movie: Movie,
     navController: NavHostController,
-    roomViewModel: RoomViewModel
 ) {
     Card(
         modifier = Modifier

@@ -8,15 +8,13 @@ import androidx.navigation.NavHostController
 import com.example.movietest.R
 import com.example.movietest.domain.models.Movie
 import com.example.movietest.ui.components.error.dialog.NotFoundDialog
-import com.example.movietest.ui.viewmodels.RoomViewModel
 import com.example.movietest.ui.viewmodels.SearchBarViewModel
 
 @Composable
 fun SearchBarScreen(
     navController: NavHostController,
     movieList: List<Movie>,
-    route: String = "",
-    roomViewModel: RoomViewModel
+    route: String = ""
 ) {
     val searchBarViewModel = SearchBarViewModel()
     val query: String by searchBarViewModel.query.observeAsState(initial = "")
@@ -31,8 +29,7 @@ fun SearchBarScreen(
         searchBarViewModel = searchBarViewModel,
         filteredDataList = filteredData,
         navController = navController,
-        route = route,
-        roomViewModel = roomViewModel
+        route = route
     )
 
     // Si el usuario busca una pelicula que no existe, saldra un mensaje de error

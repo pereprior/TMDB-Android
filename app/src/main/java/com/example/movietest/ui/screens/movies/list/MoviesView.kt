@@ -24,17 +24,14 @@ import androidx.navigation.NavHostController
 import com.example.movietest.R
 import com.example.movietest.domain.models.Movie
 import com.example.movietest.ui.components.constants.MEDIUM_PADDING_VALUE
-import com.example.movietest.ui.components.loading.LoadingText
 import com.example.movietest.ui.screens.movies.list.search.MovieCardInfo
 import com.example.movietest.ui.theme.typography
-import com.example.movietest.ui.viewmodels.RoomViewModel
 import kotlinx.coroutines.delay
 
 @Composable
 fun MoviesListView(
     movieList: List<Movie>,
-    navHostController: NavHostController,
-    roomViewModel: RoomViewModel
+    navHostController: NavHostController
 ) {
     var showSearching by remember { mutableStateOf(true) }
 
@@ -64,8 +61,7 @@ fun MoviesListView(
 
     MovieListColumns(
         movieList = movieList,
-        navController = navHostController,
-        roomViewModel = roomViewModel
+        navController = navHostController
     )
 }
 
@@ -73,7 +69,6 @@ fun MoviesListView(
 private fun MovieListColumns(
     movieList: List<Movie>,
     navController: NavHostController,
-    roomViewModel: RoomViewModel
 ) {
     LazyVerticalGrid(
         columns = GridCells.Adaptive(minSize = 400.dp),
@@ -83,7 +78,6 @@ private fun MovieListColumns(
             MovieCardInfo(
                 movie = movie,
                 navController = navController,
-                roomViewModel = roomViewModel
             )
         }
     }

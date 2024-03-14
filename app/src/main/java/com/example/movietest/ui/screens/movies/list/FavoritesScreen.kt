@@ -15,7 +15,6 @@ fun FavoritesScreen(
 
     MoviesListView(
         movieList = favoritesList,
-        navHostController = navController,
-        roomViewModel = roomViewModel,
+        navHostController = navController
     )
 }

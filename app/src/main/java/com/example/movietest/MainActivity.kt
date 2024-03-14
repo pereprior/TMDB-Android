@@ -106,7 +106,6 @@ class MainActivity : ComponentActivity() {
             ) {
                 MovieListScreen(
                     movieViewModel = movieViewModel,
-                    roomViewModel = roomViewModel,
                     navController = navController
                 )
             }

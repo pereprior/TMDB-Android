@@ -30,4 +30,8 @@
     <string name="confirm_exit_message">Are you sure you want to exit the application?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+
+    <!-- Bottom Bar Sections -->
+    <string name="movies_section">Movies</string>
+    <string name="favorites_section">Favorites</string>
 </resources>

@@ -47,7 +47,8 @@ fun TopBar(darkTheme: MutableState<Boolean>) {
             title = {
                 Text(
                     text = stringResource(id = R.string.app_name),
-                    style = typography.titleLarge
+                    style = typography.titleLarge,
+                    color = MaterialTheme.colorScheme.onSecondary
                 )
             },
             actions = {
@@ -58,7 +59,8 @@ fun TopBar(darkTheme: MutableState<Boolean>) {
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_themes),
-                        contentDescription = "themes icon"
+                        contentDescription = "themes icon",
+                        tint = MaterialTheme.colorScheme.onSecondary
                     )
 
                     Spacer(modifier = Modifier.padding(LOW_PADDING_VALUE.dp))

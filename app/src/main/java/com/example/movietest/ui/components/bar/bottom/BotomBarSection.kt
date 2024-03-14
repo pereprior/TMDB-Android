@@ -22,7 +22,7 @@ import com.example.movietest.ui.components.constants.MEDIUM_PADDING_VALUE
 
 @Composable
 fun BottomBarScreen(
-    screen: BottomBarOption,
+    screen: BottomBarData,
     navController: NavHostController,
     isSelected: Boolean
 ) {
@@ -47,14 +47,14 @@ fun BottomBarScreen(
             Icon(
                 imageVector = screen.icon,
                 contentDescription = "icon",
-                tint = Color.White
+                tint = MaterialTheme.colorScheme.onTertiary
             )
 
             // El texto solo se muestra si la pantalla esta seleccionada
             AnimatedVisibility(visible = isSelected) {
                 Text(
                     text = screen.title,
-                    color = Color.White
+                    color = MaterialTheme.colorScheme.onTertiary
                 )
             }
         }

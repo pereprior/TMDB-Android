@@ -8,51 +8,41 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.movietest.R
 import com.example.movietest.ui.components.constants.MOVIE_LIST_ROUTE
 import com.example.movietest.ui.components.constants.FAVORITE_LIST_ROUTE
 
-private val barOptions = listOf(
-    // Pantalla para visualizar las peliculas
-    BottomBarOption(
-        route = MOVIE_LIST_ROUTE,
-        title = "Movies",
-        icon = Icons.Filled.PlayArrow
-    ),
-
-    // Pantalla para cambiar los ajustes de la app
-    BottomBarOption(
-        route = FAVORITE_LIST_ROUTE,
-        title = "Favorites",
-        icon = Icons.Filled.Favorite
-    )
-)
-
 @Composable
 fun BottomBar(navController: NavHostController) {
-    // Obtener la pantalla actual
-    val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentDestination = navBackStackEntry?.destination
+    val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
+    val barOptions = listOf(
+        BottomBarData(
+            MOVIE_LIST_ROUTE,
+            stringResource(R.string.movies_section),
+            Icons.Filled.PlayArrow
+        ),
 
-    val initialSelectedItem = barOptions.firstOrNull { it.route == currentDestination?.route }
-        ?: barOptions.first()
+        BottomBarData(
+            FAVORITE_LIST_ROUTE,
+            stringResource(R.string.favorites_section),
+            Icons.Filled.Favorite
+        )
+    )
 
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(Color.Black.copy(alpha = 0.3f)),
+        modifier = Modifier.fillMaxWidth().background(Color.Black.copy(alpha = 0.3f)),
         horizontalArrangement = Arrangement.SpaceEvenly,
     ) {
-        // Mostrar los iconos para navegar entre las pantallas
-        barOptions.forEach { screen ->
+        barOptions.forEach {
             BottomBarScreen(
-                screen = screen,
+                screen = it,
                 navController = navController,
-                isSelected = screen == initialSelectedItem
+                isSelected = it.route == currentRoute
             )
         }
     }

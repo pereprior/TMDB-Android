@@ -28,4 +28,8 @@
     <string name="confirm_exit_message">¿Estás seguro de que quieres salir de la aplicación?</string>
     <string name="yes">Sí</string>
     <string name="no">No</string>
+
+    <!-- Bottom Bar Sections -->
+    <string name="movies_section">Películas</string>
+    <string name="favorites_section">Favoritos</string>
 </resources>
