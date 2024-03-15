@@ -12,9 +12,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.movietest.R
 import com.example.movietest.domain.models.Movie
-import com.example.movietest.ui.components.constants.BANNER_PADDING_VALUE
-import com.example.movietest.ui.components.constants.HIGH_PADDING_VALUE
-import com.example.movietest.ui.components.constants.MEDIUM_PADDING_VALUE
+import com.example.movietest.constants.BANNER_PADDING_VALUE
+import com.example.movietest.constants.HIGH_PADDING_VALUE
+import com.example.movietest.constants.MEDIUM_PADDING_VALUE
 import com.example.movietest.ui.components.utils.text.BoldFormatText
 import com.example.movietest.ui.components.utils.text.BoldListFormatText
 import com.example.movietest.ui.components.utils.MovieCard

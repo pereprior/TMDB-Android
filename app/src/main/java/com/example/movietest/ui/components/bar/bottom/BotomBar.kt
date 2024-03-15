@@ -14,21 +14,21 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.movietest.R
-import com.example.movietest.ui.components.constants.MOVIE_LIST_ROUTE
-import com.example.movietest.ui.components.constants.FAVORITE_LIST_ROUTE
+import com.example.movietest.constants.MOVIES_ROUTE
+import com.example.movietest.constants.FAVORITES_ROUTE
 
 @Composable
 fun BottomBar(navController: NavHostController) {
     val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
     val barOptions = listOf(
         BottomBarData(
-            MOVIE_LIST_ROUTE,
+            MOVIES_ROUTE,
             stringResource(R.string.movies_section),
             Icons.Filled.PlayArrow
         ),
 
         BottomBarData(
-            FAVORITE_LIST_ROUTE,
+            FAVORITES_ROUTE,
             stringResource(R.string.favorites_section),
             Icons.Filled.Favorite
         )

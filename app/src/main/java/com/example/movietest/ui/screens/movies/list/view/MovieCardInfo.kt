@@ -11,8 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.movietest.domain.models.Movie
-import com.example.movietest.ui.components.constants.LOW_PADDING_VALUE
-import com.example.movietest.ui.components.constants.MOVIE_LIST_ROUTE
+import com.example.movietest.constants.LOW_PADDING_VALUE
+import com.example.movietest.constants.MOVIES_ROUTE
 import com.example.movietest.ui.components.utils.text.TitleTypeText
 import com.example.movietest.ui.components.utils.ApiImage
 import com.example.movietest.ui.components.utils.MovieCard
@@ -28,7 +28,7 @@ fun MovieCardInfo(
             .fillMaxSize()
             // Cuando pulsas sobre la tarjeta de cierta pelicula, accedes a la pantalla que contiene la informacion de la misma
             .clickable {
-                navController.navigate("$MOVIE_LIST_ROUTE/${movie.title}")
+                navController.navigate("$MOVIES_ROUTE/${movie.title}")
             }
     ) {
         Column(

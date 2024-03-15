@@ -1,5 +1,6 @@
 package com.example.movietest.ui.components.utils.button
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -17,16 +18,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.movietest.domain.models.Movie
-import com.example.movietest.ui.components.constants.LOW_PADDING_VALUE
+import com.example.movietest.constants.LOW_PADDING_VALUE
 import com.example.movietest.ui.theme.ErrorColor
-import com.example.movietest.ui.viewmodels.RoomViewModel
+import com.example.movietest.ui.viewmodels.MovieViewModel
 
 @Composable
-fun FavoriteIcon(
+fun FavoriteButton(
     movie: Movie,
-    roomViewModel: RoomViewModel
+    movieViewModel: MovieViewModel
 ) {
-    var isFilled by rememberSaveable { mutableStateOf(false) }
+    var isFilled: Boolean by rememberSaveable { mutableStateOf(movieViewModel.isFavoriteByTitle(movie.title)) }
+    val animatedColor by animateColorAsState(if (isFilled) ErrorColor else Color.White, label = "Favorite Color")
 
     IconButton(
         modifier = Modifier
@@ -36,8 +38,8 @@ fun FavoriteIcon(
                 shape = CircleShape
             ),
         onClick = {
-            /*if (isFilled) roomViewModel.removeMovie(movie)
-            else roomViewModel.saveMovie(movie)*/
+            if (isFilled) movieViewModel.removeMovie(movie)
+            else movieViewModel.saveMovie(movie)
 
             isFilled = !isFilled
         }
@@ -47,8 +49,7 @@ fun FavoriteIcon(
             modifier = Modifier.fillMaxSize(0.8f),
             imageVector = Icons.Filled.Favorite,
             contentDescription = "Favorite icon",
-            tint = if (isFilled) ErrorColor
-            else Color.White,
+            tint = animatedColor,
         )
     }
 }

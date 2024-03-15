@@ -17,8 +17,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.movietest.ui.components.constants.LOW_PADDING_VALUE
-import com.example.movietest.ui.components.constants.MEDIUM_PADDING_VALUE
+import com.example.movietest.constants.LOW_PADDING_VALUE
+import com.example.movietest.constants.MEDIUM_PADDING_VALUE
 
 @Composable
 fun BottomBarScreen(

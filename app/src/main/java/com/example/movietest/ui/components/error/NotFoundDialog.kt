@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.movietest.R
-import com.example.movietest.ui.components.constants.LOW_PADDING_VALUE
+import com.example.movietest.constants.LOW_PADDING_VALUE
 import com.example.movietest.ui.components.utils.text.TitleTypeText
 import com.example.movietest.ui.theme.ErrorColor
 

@@ -1,11 +1,13 @@
 package com.example.movietest.domain.di
 
 import android.app.Application
-import com.example.movietest.data.constants.API_URL
-import com.example.movietest.data.repositories.MovieApiRepository
-import com.example.movietest.data.sources.local.fallback.MovieJsonDataSource
-import com.example.movietest.data.sources.remote.IApiService
-import com.example.movietest.data.sources.remote.MovieRemoteDataSource
+import com.example.movietest.constants.API_URL
+import com.example.movietest.data.MovieRepository
+import com.example.movietest.data.sources.MovieFallbackDataSource
+import com.example.movietest.data.api.IApiService
+import com.example.movietest.data.db.dao.MovieDAO
+import com.example.movietest.data.sources.MovieRemoteDataSource
+import com.example.movietest.data.sources.MovieRoomDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +19,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DIModule {
+object ApiModule {
     // proporciona la instancia de la api medinate inyeccion de dependencias
     @Provides
     @Singleton
@@ -35,11 +37,13 @@ object DIModule {
     @Singleton
     fun provideRepository(
         api: IApiService,
-        application: Application
-    ): MovieApiRepository {
-        return MovieApiRepository(
+        application: Application,
+        dao: MovieDAO
+    ): MovieRepository {
+        return MovieRepository(
             MovieRemoteDataSource(api),
-            MovieJsonDataSource(application)
+            MovieFallbackDataSource(application),
+            MovieRoomDataSource(dao)
         )
     }
 }

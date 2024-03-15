@@ -13,20 +13,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import com.example.movietest.ui.components.constants.BANNER_PADDING_VALUE
-import com.example.movietest.ui.components.constants.HIGH_PADDING_VALUE
-import com.example.movietest.ui.components.constants.TOP_BAR_PADDING_VALUE
+import com.example.movietest.constants.BANNER_PADDING_VALUE
+import com.example.movietest.constants.HIGH_PADDING_VALUE
+import com.example.movietest.constants.TOP_BAR_PADDING_VALUE
 import com.example.movietest.ui.components.utils.ApiImage
-import com.example.movietest.ui.components.utils.button.FavoriteIcon
+import com.example.movietest.ui.components.utils.button.FavoriteButton
 import com.example.movietest.ui.screens.movies.detail.view.MovieDetailBody
 import com.example.movietest.ui.viewmodels.MovieViewModel
-import com.example.movietest.ui.viewmodels.RoomViewModel
 
 @Composable
 fun MovieDetailScreen (
     movieViewModel: MovieViewModel,
-    roomViewModel: RoomViewModel,
-    selectedMovie: String?,
+    selectedMovie: String?
 ) {
     val movie = movieViewModel.getMovieByTitle(selectedMovie!!)
 
@@ -57,9 +55,9 @@ fun MovieDetailScreen (
             )
 
             // Boton de favoritos
-            FavoriteIcon(
+            FavoriteButton(
                 movie = movie,
-                roomViewModel = roomViewModel
+                movieViewModel = movieViewModel
             )
         }
     }

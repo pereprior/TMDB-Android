@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.movietest.R
 import com.example.movietest.domain.models.Movie
-import com.example.movietest.ui.components.constants.TOP_BAR_PADDING_VALUE
+import com.example.movietest.constants.TOP_BAR_PADDING_VALUE
 import com.example.movietest.ui.screens.movies.list.view.MoviesListView
 import com.example.movietest.ui.viewmodels.SearchBarViewModel
 

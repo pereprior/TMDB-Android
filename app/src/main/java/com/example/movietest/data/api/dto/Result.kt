@@ -1,4 +1,4 @@
-package com.example.movietest.data.sources.dto
+package com.example.movietest.data.api.dto
 
 import com.google.gson.annotations.SerializedName
 

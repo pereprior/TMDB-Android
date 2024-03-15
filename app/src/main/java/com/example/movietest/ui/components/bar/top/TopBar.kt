@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -18,8 +19,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.movietest.R
-import com.example.movietest.ui.components.constants.LOW_PADDING_VALUE
-import com.example.movietest.ui.components.constants.TOP_BAR_PADDING_VALUE
+import com.example.movietest.constants.HIGH_PADDING_VALUE
+import com.example.movietest.constants.LOW_PADDING_VALUE
+import com.example.movietest.constants.TOP_BAR_PADDING_VALUE
 import com.example.movietest.ui.components.utils.DrawableIcon
 import com.example.movietest.ui.components.utils.button.SwitchButton
 import com.example.movietest.ui.theme.typography
@@ -34,7 +36,19 @@ fun TopBar(isDarkTheme: MutableState<Boolean>) {
     ) {
         TopAppBar(
             // Logo de la aplicacion
-            navigationIcon = { DrawableIcon(R.drawable.ic_launcher_icon) },
+            navigationIcon = {
+                Box (
+                    modifier = Modifier
+                        .padding(LOW_PADDING_VALUE.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    DrawableIcon(
+                        painter = R.drawable.ic_launcher_icon,
+                        modifier = Modifier
+                            .size(HIGH_PADDING_VALUE.dp)
+                    )
+                }
+            },
             // Nombre de la aplicacion
             title = {
                 Text(
