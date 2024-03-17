@@ -13,9 +13,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.movietest.FAVORITES_ROUTE
+import com.example.movietest.MOVIES_ROUTE
 import com.example.movietest.R
-import com.example.movietest.constants.MOVIES_ROUTE
-import com.example.movietest.constants.FAVORITES_ROUTE
 
 @Composable
 fun BottomBar(navController: NavHostController) {

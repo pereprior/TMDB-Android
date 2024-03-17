@@ -1,4 +1,4 @@
-package com.example.movietest.ui.components.loading
+package com.example.movietest.ui.components.anim
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

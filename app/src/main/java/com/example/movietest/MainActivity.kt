@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -19,8 +20,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.movietest.ui.components.bar.bottom.BottomBar
 import com.example.movietest.ui.components.bar.top.TopBar
-import com.example.movietest.constants.MOVIES_ROUTE
-import com.example.movietest.constants.FAVORITES_ROUTE
 import com.example.movietest.ui.screens.movies.detail.MovieDetailScreen
 import com.example.movietest.ui.screens.movies.list.MovieListScreen
 import com.example.movietest.ui.screens.movies.list.FavoritesListScreen
@@ -28,7 +27,10 @@ import com.example.movietest.ui.theme.MovieTestTheme
 import com.example.movietest.ui.viewmodels.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-private const val ANIMATION_DURATION = 700
+const val MOVIES_ROUTE = "MovieView"
+const val FAVORITES_ROUTE = "FavoriteView"
+
+private const val TRANSITION_ANIMATION_DURATION = 700
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -36,8 +38,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val isdarkTheme = rememberSaveable { mutableStateOf(false) }
+            val isSystemInDarkTheme = isSystemInDarkTheme()
+            val isdarkTheme = rememberSaveable { mutableStateOf(isSystemInDarkTheme) }
+
             val navController = rememberNavController()
+
             val movieViewModel by viewModels<MovieViewModel>()
 
             MovieTestTheme (
@@ -82,13 +87,13 @@ class MainActivity : ComponentActivity() {
                 enterTransition = {
                     slideIntoContainer(
                         AnimatedContentTransitionScope.SlideDirection.Right,
-                        animationSpec = tween(ANIMATION_DURATION)
+                        animationSpec = tween(TRANSITION_ANIMATION_DURATION)
                     )
                 },
                 exitTransition = {
                     slideOutOfContainer(
                         AnimatedContentTransitionScope.SlideDirection.Left,
-                        animationSpec = tween(ANIMATION_DURATION)
+                        animationSpec = tween(TRANSITION_ANIMATION_DURATION)
                     )
                 }
             ) {

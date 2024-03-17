@@ -29,6 +29,7 @@ class MovieViewModel @Inject constructor(
         getMovies()
     }
 
+    // Por defecto, se visualizara la lista de peliculas populares, pero se podrá cambiar el endpoint para obtener otras listas
     private fun getMovies() {
         viewModelScope.launch {
             _movieList.value = getMoviesUseCase.execute()

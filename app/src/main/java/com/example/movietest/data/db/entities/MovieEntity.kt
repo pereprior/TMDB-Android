@@ -15,9 +15,6 @@ data class MovieEntity(
     @ColumnInfo(name = "image_reference")
     val imageReference: String,
 
-    /*@ColumnInfo(name = "genres")
-    val genres: List<String>,*/
-
     @ColumnInfo(name = "original_language")
     val originalLanguage: String,
 

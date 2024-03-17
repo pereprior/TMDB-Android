@@ -7,7 +7,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.movietest.constants.TOP_BAR_PADDING_VALUE
+import com.example.movietest.ui.components.utils.TOP_BAR_PADDING_VALUE
 import com.example.movietest.ui.screens.movies.list.view.MoviesListView
 import com.example.movietest.ui.viewmodels.MovieViewModel
 

@@ -17,7 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import com.example.movietest.R
-import com.example.movietest.constants.MEDIUM_PADDING_VALUE
+import com.example.movietest.ui.components.utils.MEDIUM_PADDING_VALUE
 import com.example.movietest.ui.theme.typography
 import kotlinx.coroutines.delay
 

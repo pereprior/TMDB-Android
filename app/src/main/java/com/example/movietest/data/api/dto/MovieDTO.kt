@@ -30,7 +30,7 @@ fun MovieDTO.toDomain(genresDTO: GenresDTO): List<Movie> {
         movies.add(
             Movie(
                 imageReference = movieResult.backdropPath,
-                //genres = movieGenres,
+                genres = movieGenres,
                 originalLanguage = movieResult.originalLanguage,
                 originalTitle = movieResult.originalTitle,
                 overview = movieResult.overview,

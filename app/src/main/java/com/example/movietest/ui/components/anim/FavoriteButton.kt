@@ -1,4 +1,4 @@
-package com.example.movietest.ui.components.utils.button
+package com.example.movietest.ui.components.anim
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.movietest.domain.models.Movie
-import com.example.movietest.constants.LOW_PADDING_VALUE
+import com.example.movietest.ui.components.utils.LOW_PADDING_VALUE
 import com.example.movietest.ui.theme.ErrorColor
 import com.example.movietest.ui.viewmodels.MovieViewModel
 

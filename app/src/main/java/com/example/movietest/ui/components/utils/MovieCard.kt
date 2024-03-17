@@ -8,9 +8,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.movietest.constants.HIGH_PADDING_VALUE
-import com.example.movietest.constants.LOW_PADDING_VALUE
-import com.example.movietest.constants.MEDIUM_PADDING_VALUE
 
 // Plantilla para las tarjetas de informacion de las peliculas
 @Composable

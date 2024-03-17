@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.movietest.constants.TOP_BAR_PADDING_VALUE
+import com.example.movietest.ui.components.utils.TOP_BAR_PADDING_VALUE
 import com.example.movietest.domain.models.Movie
 import com.example.movietest.ui.components.error.NotFoundMessage
 

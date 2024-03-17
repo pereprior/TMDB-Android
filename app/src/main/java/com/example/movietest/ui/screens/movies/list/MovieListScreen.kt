@@ -9,7 +9,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.navigation.NavHostController
 import com.example.movietest.ui.components.error.AlertExitDialog
-import com.example.movietest.ui.components.loading.WaitScreen
+import com.example.movietest.ui.components.anim.WaitScreen
 import com.example.movietest.ui.screens.movies.list.view.SearchBarView
 import com.example.movietest.ui.viewmodels.MovieViewModel
 

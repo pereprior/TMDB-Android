@@ -1,4 +1,4 @@
-package com.example.movietest.ui.components.utils
+package com.example.movietest.ui.components.anim
 
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
@@ -21,7 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.movietest.constants.LOW_PADDING_VALUE
+import com.example.movietest.ui.components.utils.LOW_PADDING_VALUE
 
 private const val MIN_VALUE = 0f
 private const val MAX_VALUE = 10f

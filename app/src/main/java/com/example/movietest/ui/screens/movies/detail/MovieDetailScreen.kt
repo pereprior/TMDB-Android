@@ -13,11 +13,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import com.example.movietest.constants.BANNER_PADDING_VALUE
-import com.example.movietest.constants.HIGH_PADDING_VALUE
-import com.example.movietest.constants.TOP_BAR_PADDING_VALUE
+import com.example.movietest.ui.components.utils.BANNER_PADDING_VALUE
+import com.example.movietest.ui.components.utils.HIGH_PADDING_VALUE
+import com.example.movietest.ui.components.utils.TOP_BAR_PADDING_VALUE
 import com.example.movietest.ui.components.utils.ApiImage
-import com.example.movietest.ui.components.utils.button.FavoriteButton
+import com.example.movietest.ui.components.anim.FavoriteButton
 import com.example.movietest.ui.screens.movies.detail.view.MovieDetailBody
 import com.example.movietest.ui.viewmodels.MovieViewModel
 

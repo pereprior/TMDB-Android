@@ -7,7 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import com.example.movietest.R
-import com.example.movietest.ui.components.utils.text.TitleTypeText
+import com.example.movietest.ui.components.text.TitleTypeText
 import kotlin.system.exitProcess
 
 // Mensaje de confirmacion para salir de la aplicacion

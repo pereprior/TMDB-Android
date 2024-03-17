@@ -12,10 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.movietest.R
-import com.example.movietest.constants.LOW_PADDING_VALUE
-import com.example.movietest.constants.MEDIUM_PADDING_VALUE
-import com.example.movietest.ui.components.utils.text.BoldFormatText
-import com.example.movietest.ui.components.utils.CircularProgress
+import com.example.movietest.ui.components.utils.LOW_PADDING_VALUE
+import com.example.movietest.ui.components.utils.MEDIUM_PADDING_VALUE
+import com.example.movietest.ui.components.text.BoldFormatText
+import com.example.movietest.ui.components.anim.CircularProgress
 
 // Vista que muestra el promedio de votos y el numero de votos
 @Composable

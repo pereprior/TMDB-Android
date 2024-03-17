@@ -3,7 +3,6 @@ package com.example.movietest.ui.components.bar.search
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -18,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.movietest.R
 import com.example.movietest.domain.models.Movie
-import com.example.movietest.constants.TOP_BAR_PADDING_VALUE
+import com.example.movietest.ui.components.utils.TOP_BAR_PADDING_VALUE
 import com.example.movietest.ui.screens.movies.list.view.MoviesListView
 import com.example.movietest.ui.viewmodels.SearchBarViewModel
 
@@ -46,19 +45,12 @@ fun MovieSearchBar(
         },
         active = true,
         onActiveChange = {},
-        leadingIcon = { Icon(imageVector = Icons.AutoMirrored.Filled.List, contentDescription = "Menu Icon") },
+        leadingIcon = { Icon(imageVector = Icons.Filled.Search, contentDescription = "Search Icon") },
         placeholder = {
             Text(
                 text = stringResource(id = R.string.searchbar_placeholder),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onBackground
-            )
-        },
-        trailingIcon = {
-            Icon(
-                imageVector = Icons.Filled.Search,
-                contentDescription = "Search Icon",
-                tint = MaterialTheme.colorScheme.onBackground
             )
         },
         content = {

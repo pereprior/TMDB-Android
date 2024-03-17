@@ -1,4 +1,4 @@
-package com.example.movietest.ui.components.utils.text
+package com.example.movietest.ui.components.text
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
@@ -9,7 +9,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import com.example.movietest.constants.HIGH_PADDING_VALUE
+import com.example.movietest.ui.components.utils.HIGH_PADDING_VALUE
 import com.example.movietest.ui.theme.typography
 
 @Composable

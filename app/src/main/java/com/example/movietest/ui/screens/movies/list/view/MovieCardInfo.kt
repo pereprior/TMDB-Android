@@ -10,10 +10,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.movietest.MOVIES_ROUTE
 import com.example.movietest.domain.models.Movie
-import com.example.movietest.constants.LOW_PADDING_VALUE
-import com.example.movietest.constants.MOVIES_ROUTE
-import com.example.movietest.ui.components.utils.text.TitleTypeText
+import com.example.movietest.ui.components.utils.LOW_PADDING_VALUE
+import com.example.movietest.ui.components.text.TitleTypeText
 import com.example.movietest.ui.components.utils.ApiImage
 import com.example.movietest.ui.components.utils.MovieCard
 import com.example.movietest.ui.components.utils.RatingBar

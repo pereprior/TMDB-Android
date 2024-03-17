@@ -1,4 +1,4 @@
-package com.example.movietest.constants
+package com.example.movietest.ui.components.utils
 
 const val LOW_PADDING_VALUE = 8
 const val MEDIUM_PADDING_VALUE = 16

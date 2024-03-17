@@ -1,4 +1,4 @@
-package com.example.movietest.ui.components.utils.button
+package com.example.movietest.ui.components.anim
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
@@ -13,8 +13,8 @@ fun SwitchButton(
 ) {
     Switch(
         checked = value.value,
-        onCheckedChange = { isChecked ->
-            value.value = isChecked
+        onCheckedChange = {
+            value.value = it
         },
         colors = SwitchDefaults.colors(
             checkedThumbColor = MaterialTheme.colorScheme.primary,

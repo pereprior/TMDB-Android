@@ -1,4 +1,4 @@
-package com.example.movietest.ui.components.loading
+package com.example.movietest.ui.components.anim
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.movietest.R
-import com.example.movietest.constants.LOW_PADDING_VALUE
+import com.example.movietest.ui.components.utils.LOW_PADDING_VALUE
 
 const val ANIMATION_DELAY_IN_MILLIS = 500
 
